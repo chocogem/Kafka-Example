@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: ServerApplication
+  kafka:
+    bootstrap-servers: kafka:9092
+    group-id: myGroup1
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        partitioner:
+          class: org.apache.kafka.clients.producer.RoundRobinPartitioner
+              
